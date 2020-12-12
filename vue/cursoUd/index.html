@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>curso Vue Edemy</title>
+</head>
+<body>
+    <main id="app" style="width: 500px;">
+        <h1 v-text="mensaje"></h1>
+        <h3>Alinear texto</h3>
+        <input type="text" v-model="datos">
+        <p v-bind:align="datos">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita repellendus ratione dolores quos iure esse, iusto voluptas enim assumenda doloribus.
+        </p>
+        
+        <h2 v-if="select==1" >Agencia de Marketing - Creaando Studio</h2>
+        <h2 v-else-if="select==2">Creaando Studio</h2>
+        <h2 v-else>S&T Company</h2>
+        <input type="text" v-model="select">
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+</html>

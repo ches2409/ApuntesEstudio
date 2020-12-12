@@ -1,0 +1,15 @@
+{
+  "name": "node_js",
+  "version": "1.0.0",
+  "description": "Curso NodeJs",
+  "main": "index.js",
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Andres Gomez",
+  "license": "MIT"
+}
