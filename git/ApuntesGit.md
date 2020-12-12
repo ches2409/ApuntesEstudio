@@ -309,27 +309,33 @@ crear ramas
 
 `git branch <nombreRama>`{style="color:white;background:black;padding:10px"}
 
-para listar ramas
+para listar ramas (-l , --list)
 
-`git branch -l`{style="color:white;background:black;padding:10px"}
+`git branch --list`{style="color:white;background:black;padding:10px"}
 
-borrar ramas
+borrar ramas (-d, --delete)
  * no permite borrar cuando hay cambios dentro de ella (commit)
 
 `git branch -d <nombreRama>`{style="color:white;background:black;padding:10px"}
 
-* para forzar el borrado se usa
+* para forzar el borrado se usa (--delete --force, -D)
 
 `git branch -D <nombreRama>`{style="color:white;background:black;padding:10px"}
 
-renombrar ramas
+renombrar ramas (-m, --move)
 
 `git branch -m <nombreRamaOriginal> <nombreRamaFinal>`{style="color:white;background:black;padding:10px"}
 
-Crear una rama y ubicarse en ella
 
-`git branch -b <nombreRama>`{style="color:white;background:black;padding:10px"}
+#### `Movimiento entre ramas (checkout)`{style="color:green"}
+moverse entre ramas
+
+`git checkout <nombreRama>`{style="color:white;background:black;padding:10px"}
+
+tambien se puede usar el `checkout`{style="color:green"} para moverse entre commit, por medio este podemos movernos a ese commit y revisar como estuve en ese tiempo el proyecto sin borrar nada.(crea la rama virtual con el nombre del SHA-1 hash)
+
+`git checkout <hash>`{style="color:white;background:black;padding:10px"}
+
+crear rama y ubicarse en ella
 
 `git checkout -b <nombreRama>`{style="color:white;background:black;padding:10px"}
-
-#### `Moveimiento entre ramas (checkout)`{style="color:green"}
