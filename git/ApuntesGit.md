@@ -5,7 +5,7 @@ puppeteer:
         displayHeaderFooter: true
         margin:
             top: 2cm
-            right: 0.5cm
+            right: 2.5cm
             bottom: 2cm
             left: 0.5cm
     image:
@@ -28,12 +28,11 @@ puppeteer:
 :::
 ::::
 
-</br>
+<!-- <br> -->
 
 ### `Guía rápida`{style="color:orangeRed"}
-
-</br>
-===
+<!-- <br> -->
+<!-- === -->
 
 #### `Paso a paso (lo más básico - trabajo inicial)`{style="color:green"}
 Resumen de trabajo inicial.
@@ -73,10 +72,10 @@ Ejemplo:
 <br>
 <br>
 
-### `Guía completa de uso`{style="color:orangeRed"}
+### `Guía completa de uso / parte 1: trabajo local`{style="color:orangeRed"}
 
-</br>
-===
+<!-- </br>
+=== -->
 
 Guía completa de trabajo con Git
 
@@ -521,4 +520,7 @@ Opciones para trabajar con `cherry-pick`{style="color:green"}:
 * `--signoff`{style="color:blue"}: Añade una línea de firma 'signoff' al final del mensaje de confirmación de cherry-pick.
 
 `cherry-pick`{style="color:green"} también cuenta con una variedad de opciones de estrategía de fusión (https://www.atlassian.com/es/git/tutorials/using-branches/merge-strategy)
+
+### `Guía completa de uso / parte 2: trabajo remoto`{style="color:orangeRed"}
+Crear cuenta en Github.com
 
