@@ -13,6 +13,7 @@ puppeteer:
         fullPage: true
     
 ---
+
 :::: container
 :::text-center
 # `Git`{style="color:orange"}
@@ -81,8 +82,6 @@ Guía completa de trabajo con Git
 
 #### Imágen de convenciones
 ![conv](./conventions.svg)
-
-
 
 
 #### `Esquema básico`{style="color:green"}
@@ -244,6 +243,8 @@ El comando `git log`{style="color:green"} se puede personalizar
 
 `git log -<numeroCommit>`{style="color:white;background:black;padding:10px"}
 
+para cerrar la pantalla del `log`{style="color:green"} en el terminal, basta con presionar la tecla [[Q]]
+
 #### `Diferencias entre versiones (diff)`{style="color:green"}
 Para ver los cambios entre los commit se usa el comando [[git diff]]
 
@@ -279,7 +280,7 @@ en resumen quita un cambio pero lo mantiene en `stage`{style="color:blue"}
 
 !!! note Ejemplo de uso
     por medio del `log`{style="color:green"} ubicamos el `hash`{style="color:blue"} a quitar.
-    ```
+    ``` sh
     43f3570 agregado nuevo hero // commit a quitar
     8db3310 agregado el header // hash a llamar
     052f52b inicializar el landing
@@ -361,6 +362,8 @@ Ubicarse en la rama que va recibir los cambios (master)
 
 `git merge <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
 
+![merge](./merge.png)
+
 metodos internos de git a usar en el merge
 
 * `Fast-forward`{style="color:green"}: la rama que se va a unir, parte directamente desde la rama master, continuación directa.
@@ -370,3 +373,31 @@ metodos internos de git a usar en el merge
 * `Auto-merging CONFLICT`{style="color:green"}:Cuando se mezclan con archivos iguales, se revisan los cambios manuales y se deja una version.
 
 #### `reescribir la historia (rebase)`{style="color:green"}
+Una alternativa a `merge`{style="color:green"}, en lugar de enlazar ramas con `commit`{style="color:green"} de merge, el `rebase`{style="color:green"} mueve completamente la rama con la nueva característica hacia la punta del `master`{style="color:blue"}
+
+![rebase](./rebase.png)
+
+`git rebase <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
+
+Ventajas:
+
+* Resulta en una historia lineal del proyecto
+* Oportunidad de limpiar commits locales
+
+contras:
+* hace la unión de todas las ramas
+
+!!! danger Para tener en cuenta
+    Al no realizarce de manera correcta, puede ser una de las operaciones más peligrosas que se le puede realizar a un repositorio
+
+hacer un rebase no mueve los commits en una nueva rama. En su lugar, crea nuevos commits que contienen los cambios deseados.
+
+![dangerRebase](./danger.png)
+
+Después de hacer un rebase, los commits en `feature`{style="color:orangeRed"} tendrán diferentes hashes. Esto significa que no solo posicionamos una rama —literalmente, reescribimos la historia del proyecto. Esto es un efecto secundario muy importante de `rebase`{style="color:green"}.
+##### interactivo (interative rebase -i)
+
+El rebase interactivo deja definir precisamente como cada commit será movido hacia la nueva base.
+
+De esta manera se confirman las modificaciones (commit), es util para cambiar los mensajes de los commits anteriores así como reorganizar el historial de confirmaciones, equivalente al `--amend`{style="color:green"}.
+
