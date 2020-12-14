@@ -13,15 +13,26 @@ puppeteer:
         fullPage: true
     
 ---
+:::: container
+:::text-center
+# `Git`{style="color:orange"}
+:::
+::::
 
-# Git{style="color:orange"}
+</br>
 
-## `Guías`{style="color:white;background:gray;padding:10px"}
+::::
+:::text-right alert alert-secondary
+## Guías de estudio
+:::
+::::
 
-<br>
-<br>
+</br>
 
 ### `Guía rápida`{style="color:orangeRed"}
+
+</br>
+===
 
 #### `Paso a paso (lo más básico - trabajo inicial)`{style="color:green"}
 Resumen de trabajo inicial.
@@ -34,7 +45,7 @@ Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el 
 
 2. Agregar todos los archivos
 
-`git add add .`{style="color:white;background:black;padding:10px"}
+`git add .`{style="color:white;background:black;padding:10px"}
 
 3. Confirmar los cambios
 
@@ -50,9 +61,9 @@ Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el 
 
 Ejemplo:
 
-    ```
+~~~
     git remote add origin https://github.com/ches2409/etp.git
-    ```
+~~~
 
 5. Subir los archivos al servidor, en este caso a la rama `master`{style="color:blue"}
 
@@ -62,6 +73,9 @@ Ejemplo:
 <br>
 
 ### `Guía completa de uso`{style="color:orangeRed"}
+
+</br>
+===
 
 Guía completa de trabajo con Git
 
@@ -339,3 +353,11 @@ tambien se puede usar el `checkout`{style="color:green"} para moverse entre comm
 crear rama y ubicarse en ella
 
 `git checkout -b <nombreRama>`{style="color:white;background:black;padding:10px"}
+
+#### `Trabajar entre ramas`{style="color:green"}
+Una vez terminado el trabajo en cada una de las ramas se procede a realizar la union de todas la ramas.
+
+Ubicarse en la rama que va recibir los cambios (master)
+
+`git merge <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
+
