@@ -154,11 +154,21 @@ Pasar los archivos del `stage`{style="color:blue"} al [[head]] (repository)
 
 `git commit -m "mensaje descriptivo de lo realizado"`{style="color:white;background:black;padding:10px"}
 
+![commit](./commit-master.svg)
+
+##### amend
+
+el comando `git --amend`{style="color:green"} es una manera práctica de modificar la confirmación más reciente. Permite combinar los cambios preparados con la confirmación anterior en lugar de crear una confirmación nueva. También puede usarse para editar el mensaje de la confirmación anterior sin cambiar la instantánea.
+
+`git commit --amend "mensaje de cambio"`{style="color:white;background:black;padding:10px"}
+
 para agregar un cambio al commit realizado previamente se usa:
 
 ```
     git commit --amend -m "mensaje modificado, remplaza el anterior"
 ```
+
+![amend](./commit-amend.svg)
 
 #### `versionar o etiquetar (tag)`{style="color:green"}
 Para realizar un versionamieto del proyecto se usa la etiqueta [[git tag]]
@@ -399,5 +409,57 @@ Después de hacer un rebase, los commits en `feature`{style="color:orangeRed"} t
 
 El rebase interactivo deja definir precisamente como cada commit será movido hacia la nueva base.
 
+`git rebase -i <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
+
 De esta manera se confirman las modificaciones (commit), es util para cambiar los mensajes de los commits anteriores así como reorganizar el historial de confirmaciones, equivalente al `--amend`{style="color:green"}.
 
+#### `Cambios temporales (stash)`{style="color:green"}
+
+El comando `stash`{style="color:green"} almacena temporalmente (o guarda en un stash) los cambios que se hayan efectuado en el código en el que se está trabajando. Guardar los cambios en stashes resulta práctico si se tiene que cambiar rápidamente de contexto, y no se tiene listo el código para confirmar los cambios.
+
+`git stash`{style="color:white;background:black;padding:10px"}
+
+al regresar a la rama donde se dejó, se puede hacer una visualización de los stash:
+
+`git stash list`{style="color:white;background:black;padding:10px"}
+
+``` bash:listado-stash
+stash@{0}: WIP on <branch>: <hash> <commit>
+stash@{1}: WIP on <branch>: <hash> <commit>
+```
+!!! note ""
+    `stash@{#}`{style="color:orangeRed"}: identificador
+
+    `WIP`{style="color:orangeRed"}: Trabajo en curso
+
+se recomienda comentar los `stash`{style="color:green"} con una descripción mediante el comando
+
+`git stash save "comentario del stash"`{style="color:white;background:black;padding:10px"}
+
+* ver las diferencias de un stash
+
+`git stash show"`{style="color:white;background:black;padding:10px"}
+
+Otra opción es utilizar la opción -p (o --patch) para ver todas las diferencias de un stash:
+
+`git stash show -p"`{style="color:white;background:black;padding:10px"}
+
+* eliminar
+
+`git stash drop <identificador>`{style="color:white;background:black;padding:10px"}
+
+* eliminar todos los stash
+
+`git stash clear`{style="color:white;background:black;padding:10px"}
+
+* aplicar el ultimo cambio realizado (stash@{0})  
+
+`git stash apply`{style="color:white;background:black;padding:10px"}
+
+* para aplicar cambio de un determinado stash se invoca su numero de stash:
+
+`git stash apply <identificador>`{style="color:white;background:black;padding:10px"}
+
+* Crear una nueva rama a partir del stash
+
+`git stash branch"`{style="color:white;background:black;padding:10px"}
