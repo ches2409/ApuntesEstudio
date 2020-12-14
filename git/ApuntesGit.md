@@ -365,6 +365,11 @@ crear rama y ubicarse en ella
 
 `git checkout -b <nombreRama>`{style="color:white;background:black;padding:10px"}
 
+Con checkout se puede resetear modificaciones
+
+`git checkout -- <nombreArchivoaQuitarModificacion>`{style="color:white;background:black;padding:10px"}
+
+
 #### `Trabajar entre ramas`{style="color:green"}
 Una vez terminado el trabajo en cada una de las ramas se procede a realizar la union de todas la ramas.
 
@@ -463,3 +468,57 @@ Otra opción es utilizar la opción -p (o --patch) para ver todas las diferencia
 * Crear una nueva rama a partir del stash
 
 `git stash branch"`{style="color:white;background:black;padding:10px"}
+
+#### `Seleccionando commits (cherry-pick)`{style="color:green"}
+
+`cherry-pick`{style="color:green"} es un potente comando que permite que las confirmaciones arbitrarias de Git se elijan por referencia y se añadan al actual `HEAD`{style="color:blue"} de trabajo. La ejecución de cherry-pick es el acto de elegir una confirmación de una rama y aplicarla a otra. `cherry-pick`{style="color:green"} puede ser útil para deshacer cambios. 
+
+Por ejemplo, suponiendo que una confirmación se aplica accidentalmente en la rama equivocada. Se Puede cambiar a la rama correcta y ejecutar cherry-pick en la confirmación para aplicarla a donde pertenece.
+
+!!! danger Para tener en cuenta
+    `cherry-pick`{style="color:green"} es una herramienta útil, pero no siempre es una práctica recomendada, La ejecución de cherry-pick puede generar duplicaciones de confirmaciones.
+
+`git cherry-pick`{style="color:white;background:black;padding:10px"}
+
+!!! Note Caso de uso
+    Ejemplo de uso del `cherry-pick`{style="color:green"}
+
+    ```bash:Identificación
+    6544057 (HEAD -> responsive) cambio de stilos responsive
+    0894d24 hotfix2 // archivo de arreglo no corresponde a la rama
+    a8657f4 cambio2 responsive
+    7ce6c0e cambio1 responsive
+    ```
+    paso a seguir:
+
+    sacar el commit del "hotfix2" y reubicarlo en `master`{style="color:blue"}
+
+    ```bash:Optimo
+    git checkout master
+    // crear rama de arreglo desde master y ubicación en ella
+    git checkout -b hotfix2
+    //en esta rama se debía generar el cambio
+    ```
+    ubicado en la rama donde tendría que estar el arreglo:
+
+    ```bash:Reubicación
+    (hotfix2) git cherry-pick 0894d24
+    ```
+
+    finalizar el arreglo con un merge
+
+    ```bash:finalizando
+    (hotfix2) git checkout master
+    (master) git merge hotfix2
+    ```
+
+Opciones para trabajar con `cherry-pick`{style="color:green"}:
+
+* `-edit`{style="color:blue"}:: Git solicitará un mensaje de confirmación antes de aplicar la operación cherry-pick.
+
+* `--no-commit`{style="color:blue"}: Se ejecuta el comando cherry-pick, pero en lugar de hacer una nueva confirmación, se mueve el contenido de la confirmación de destino al directorio de trabajo de la rama actual.
+
+* `--signoff`{style="color:blue"}: Añade una línea de firma 'signoff' al final del mensaje de confirmación de cherry-pick.
+
+`cherry-pick`{style="color:green"} también cuenta con una variedad de opciones de estrategía de fusión (https://www.atlassian.com/es/git/tutorials/using-branches/merge-strategy)
+
