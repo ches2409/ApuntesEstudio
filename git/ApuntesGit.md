@@ -361,3 +361,12 @@ Ubicarse en la rama que va recibir los cambios (master)
 
 `git merge <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
 
+metodos internos de git a usar en el merge
+
+* `Fast-forward`{style="color:green"}: la rama que se va a unir, parte directamente desde la rama master, continuación directa.
+
+* `Auto-mergin`{style="color:green"}: abre el ditor para confirmar cambios (commit), este tipo de combinacion se da cuando la rama ha partido del master pero ya se han realizado cambios en ella.
+
+* `Auto-merging CONFLICT`{style="color:green"}:Cuando se mezclan con archivos iguales, se revisan los cambios manuales y se deja una version.
+
+#### `reescribir la historia (rebase)`{style="color:green"}
