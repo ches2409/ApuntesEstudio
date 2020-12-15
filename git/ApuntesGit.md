@@ -14,13 +14,20 @@ puppeteer:
     
 ---
 
+<br>
+<br>
+<br>
+<br>
+
 :::: container
 :::text-center
 # `Git`{style="color:orange"}
 :::
 ::::
 
-</br>
+<br>
+<br>
+<br>
 
 ::::
 :::text-right alert alert-secondary
@@ -28,13 +35,22 @@ puppeteer:
 :::
 ::::
 
-<!-- <br> -->
+<br>
+<br>
+<br>
+<br>
 
 ### `Guía rápida`{style="color:orangeRed"}
-<!-- <br> -->
-<!-- === -->
+
+<br>
+<br>
+<br>
 
 #### `Paso a paso (lo más básico - trabajo inicial)`{style="color:green"}
+
+<br>
+<br>
+
 Resumen de trabajo inicial.
 
 Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el repositorio en Github, en caso contrario clonarlo (explicado en la guía completa).
@@ -59,6 +75,8 @@ Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el 
 
 `git remote add origin <url del repositorio de github>`{style="color:white;background:black;padding:10px"}
 
+<br>
+
 Ejemplo:
 
 ~~~
@@ -69,15 +87,37 @@ Ejemplo:
 
 `git push origin -u master`{style="color:white;background:black;padding:10px"}
 
+Para continuar con el trabajo en remoto ver la documentacion de esta guía a partir de la parte dos
+
 <br>
-<br>
+
+#### `Configurar`{style="color:green"}
+
+La siguiente configuración se realiza una vez por usuario a trabajar en el editor
+
+* configurar usuario:
+
+`git config --global user.name "nombreUsuario"`{style="color:white;background:black;padding:10px"}
+
+* configurar correo electrónico:
+
+`git config --global user.email "correoElectronico"`{style="color:white;background:black;padding:10px"}
+
+* listar la configuración:
+
+`git config --global -l"`{style="color:white;background:black;padding:10px"}
+
+
 
 ### `Guía completa de uso / parte 1: trabajo local`{style="color:orangeRed"}
 
-<!-- </br>
-=== -->
-
 Guía completa de trabajo con Git
+<br>
+<br>
+<br>
+
+
+
 
 #### Imágen de convenciones
 ![conv](./conventions.svg)
@@ -103,6 +143,7 @@ El desarrollo típico se resume en:
     1. `stage`{style="color:blue"} via `git add`{style="color:green"}
     2. `commit`{style="color:blue"} via `commit -m "mensaje"`{style="color:green"}
     3. `push`{style="color:blue"} via `git push origin master`{style="color:green"}
+
 
 #### `Crear el repositorio`{style="color:green"}
 Con el directorio creado y abierto en el editor, ejecutar:
@@ -169,6 +210,8 @@ para agregar un cambio al commit realizado previamente se usa:
 
 ![amend](./commit-amend.svg)
 
+<br>
+
 #### `versionar o etiquetar (tag)`{style="color:green"}
 Para realizar un versionamieto del proyecto se usa la etiqueta [[git tag]]
 
@@ -176,6 +219,8 @@ existen dos tipos de etiquetas:
 * Anotadas
 * Ligeras
 ligeras: la version a etiquetar, Ejemplo
+
+<br>
 
 `git tag 0.5`{style="color:white;background:black;padding:10px"}
 
@@ -219,6 +264,7 @@ luego de esto se borra la version anterior a la que se modificó
 ```
     git tag -d 0.6
 ```
+<br>
 
 #### `historia del proyecto (log)`{style="color:green"}
 Con el comando [[git log]] se revisa todos los cambios del proyecto
@@ -254,6 +300,8 @@ El comando `git log`{style="color:green"} se puede personalizar
 
 para cerrar la pantalla del `log`{style="color:green"} en el terminal, basta con presionar la tecla [[Q]]
 
+<br>
+
 #### `Diferencias entre versiones (diff)`{style="color:green"}
 Para ver los cambios entre los commit se usa el comando [[git diff]]
 
@@ -264,6 +312,8 @@ Para ver los cambios entre los commit se usa el comando [[git diff]]
 * Comparar dos commit's
 
 `git diff <SHA-1 hashUno> <SHA-1 hashDos>`{style="color:white;background:black;padding:10px"}
+
+<br>
 
 #### `re-escribir (reset)`{style="color:green"}
 para realizar cambios o sobreescribir dentro los commit se usa el comando [[git reset]]
@@ -322,6 +372,8 @@ si los archivos solo se encuentran el workig directory y se encuentra en estado 
 
 `git reset --hard <SHA-1>`{style="color:white;background:black;padding:10px"}
 
+<br>
+
 !!! danger para tener encuenta
     en caso de haber borrado con `--hard`{style="color:green"}, la unica forma para volver a ese estado es tener una copia del log y repetir el paso desde el ultimo hash o del que quiere repetir
 
@@ -368,6 +420,7 @@ Con checkout se puede resetear modificaciones
 
 `git checkout -- <nombreArchivoaQuitarModificacion>`{style="color:white;background:black;padding:10px"}
 
+<br>
 
 #### `Trabajar entre ramas`{style="color:green"}
 Una vez terminado el trabajo en cada una de las ramas se procede a realizar la union de todas la ramas.
@@ -385,6 +438,8 @@ metodos internos de git a usar en el merge
 * `Auto-mergin`{style="color:green"}: abre el ditor para confirmar cambios (commit), este tipo de combinacion se da cuando la rama ha partido del master pero ya se han realizado cambios en ella.
 
 * `Auto-merging CONFLICT`{style="color:green"}:Cuando se mezclan con archivos iguales, se revisan los cambios manuales y se deja una version.
+
+<br>
 
 #### `reescribir la historia (rebase)`{style="color:green"}
 Una alternativa a `merge`{style="color:green"}, en lugar de enlazar ramas con `commit`{style="color:green"} de merge, el `rebase`{style="color:green"} mueve completamente la rama con la nueva característica hacia la punta del `master`{style="color:blue"}
@@ -468,6 +523,8 @@ Otra opción es utilizar la opción -p (o --patch) para ver todas las diferencia
 
 `git stash branch"`{style="color:white;background:black;padding:10px"}
 
+<br>
+
 #### `Seleccionando commits (cherry-pick)`{style="color:green"}
 
 `cherry-pick`{style="color:green"} es un potente comando que permite que las confirmaciones arbitrarias de Git se elijan por referencia y se añadan al actual `HEAD`{style="color:blue"} de trabajo. La ejecución de cherry-pick es el acto de elegir una confirmación de una rama y aplicarla a otra. `cherry-pick`{style="color:green"} puede ser útil para deshacer cambios. 
@@ -477,7 +534,11 @@ Por ejemplo, suponiendo que una confirmación se aplica accidentalmente en la ra
 !!! danger Para tener en cuenta
     `cherry-pick`{style="color:green"} es una herramienta útil, pero no siempre es una práctica recomendada, La ejecución de cherry-pick puede generar duplicaciones de confirmaciones.
 
+<br>
+
 `git cherry-pick`{style="color:white;background:black;padding:10px"}
+
+<br>
 
 !!! Note Caso de uso
     Ejemplo de uso del `cherry-pick`{style="color:green"}

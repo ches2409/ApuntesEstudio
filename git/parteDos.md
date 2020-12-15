@@ -1,3 +1,19 @@
+---
+puppeteer:
+    pdf:
+        format: letter
+        displayHeaderFooter: true
+        margin:
+            top: 2cm
+            right: 2cm
+            bottom: 2cm
+            left: 2cm
+    image:
+        quality: 90
+        fullPage: true
+    
+---
+
 ### `Guía completa de uso / parte 2: trabajo remoto`{style="color:orangeRed"}
 
 Para el desarrollo de esta parte de la guía se trabaja con Github, dejando claro que no es el único servicio disponible.
