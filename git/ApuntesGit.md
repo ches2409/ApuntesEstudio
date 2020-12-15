@@ -5,25 +5,52 @@ puppeteer:
         displayHeaderFooter: true
         margin:
             top: 2cm
-            right: 0.5cm
+            right: 2cm
             bottom: 2cm
-            left: 0.5cm
+            left: 2cm
     image:
         quality: 90
         fullPage: true
     
 ---
 
-# Git{style="color:orange"}
+<br>
+<br>
+<br>
+<br>
 
-## `Guías`{style="color:white;background:gray;padding:10px"}
+:::: container
+:::text-center
+# `Git`{style="color:orange"}
+:::
+::::
 
+<br>
+<br>
+<br>
+
+::::
+:::text-right alert alert-secondary
+## Guías de estudio
+:::
+::::
+
+<br>
+<br>
 <br>
 <br>
 
 ### `Guía rápida`{style="color:orangeRed"}
 
+<br>
+<br>
+<br>
+
 #### `Paso a paso (lo más básico - trabajo inicial)`{style="color:green"}
+
+<br>
+<br>
+
 Resumen de trabajo inicial.
 
 Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el repositorio en Github, en caso contrario clonarlo (explicado en la guía completa).
@@ -34,7 +61,7 @@ Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el 
 
 2. Agregar todos los archivos
 
-`git add add .`{style="color:white;background:black;padding:10px"}
+`git add .`{style="color:white;background:black;padding:10px"}
 
 3. Confirmar los cambios
 
@@ -48,27 +75,52 @@ Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el 
 
 `git remote add origin <url del repositorio de github>`{style="color:white;background:black;padding:10px"}
 
+<br>
+
 Ejemplo:
 
-    ```
+~~~
     git remote add origin https://github.com/ches2409/etp.git
-    ```
+~~~
 
 5. Subir los archivos al servidor, en este caso a la rama `master`{style="color:blue"}
 
 `git push origin -u master`{style="color:white;background:black;padding:10px"}
 
-<br>
+Para continuar con el trabajo en remoto ver la documentacion de esta guía a partir de la parte dos
+
 <br>
 
-### `Guía completa de uso`{style="color:orangeRed"}
+#### `Configurar`{style="color:green"}
+
+La siguiente configuración se realiza una vez por usuario a trabajar en el editor
+
+* configurar usuario:
+
+`git config --global user.name "nombreUsuario"`{style="color:white;background:black;padding:10px"}
+
+* configurar correo electrónico:
+
+`git config --global user.email "correoElectronico"`{style="color:white;background:black;padding:10px"}
+
+* listar la configuración:
+
+`git config --global -l"`{style="color:white;background:black;padding:10px"}
+
+
+
+### `Guía completa de uso / parte 1: trabajo local`{style="color:orangeRed"}
 
 Guía completa de trabajo con Git
+<br>
+<br>
+<br>
+
+
+
 
 #### Imágen de convenciones
 ![conv](./conventions.svg)
-
-
 
 
 #### `Esquema básico`{style="color:green"}
@@ -91,6 +143,7 @@ El desarrollo típico se resume en:
     1. `stage`{style="color:blue"} via `git add`{style="color:green"}
     2. `commit`{style="color:blue"} via `commit -m "mensaje"`{style="color:green"}
     3. `push`{style="color:blue"} via `git push origin master`{style="color:green"}
+
 
 #### `Crear el repositorio`{style="color:green"}
 Con el directorio creado y abierto en el editor, ejecutar:
@@ -141,11 +194,23 @@ Pasar los archivos del `stage`{style="color:blue"} al [[head]] (repository)
 
 `git commit -m "mensaje descriptivo de lo realizado"`{style="color:white;background:black;padding:10px"}
 
+![commit](./commit-master.svg)
+
+##### amend
+
+el comando `git --amend`{style="color:green"} es una manera práctica de modificar la confirmación más reciente. Permite combinar los cambios preparados con la confirmación anterior en lugar de crear una confirmación nueva. También puede usarse para editar el mensaje de la confirmación anterior sin cambiar la instantánea.
+
+`git commit --amend "mensaje de cambio"`{style="color:white;background:black;padding:10px"}
+
 para agregar un cambio al commit realizado previamente se usa:
 
 ```
     git commit --amend -m "mensaje modificado, remplaza el anterior"
 ```
+
+![amend](./commit-amend.svg)
+
+<br>
 
 #### `versionar o etiquetar (tag)`{style="color:green"}
 Para realizar un versionamieto del proyecto se usa la etiqueta [[git tag]]
@@ -154,6 +219,8 @@ existen dos tipos de etiquetas:
 * Anotadas
 * Ligeras
 ligeras: la version a etiquetar, Ejemplo
+
+<br>
 
 `git tag 0.5`{style="color:white;background:black;padding:10px"}
 
@@ -197,6 +264,7 @@ luego de esto se borra la version anterior a la que se modificó
 ```
     git tag -d 0.6
 ```
+<br>
 
 #### `historia del proyecto (log)`{style="color:green"}
 Con el comando [[git log]] se revisa todos los cambios del proyecto
@@ -230,6 +298,10 @@ El comando `git log`{style="color:green"} se puede personalizar
 
 `git log -<numeroCommit>`{style="color:white;background:black;padding:10px"}
 
+para cerrar la pantalla del `log`{style="color:green"} en el terminal, basta con presionar la tecla [[Q]]
+
+<br>
+
 #### `Diferencias entre versiones (diff)`{style="color:green"}
 Para ver los cambios entre los commit se usa el comando [[git diff]]
 
@@ -240,6 +312,8 @@ Para ver los cambios entre los commit se usa el comando [[git diff]]
 * Comparar dos commit's
 
 `git diff <SHA-1 hashUno> <SHA-1 hashDos>`{style="color:white;background:black;padding:10px"}
+
+<br>
 
 #### `re-escribir (reset)`{style="color:green"}
 para realizar cambios o sobreescribir dentro los commit se usa el comando [[git reset]]
@@ -265,7 +339,7 @@ en resumen quita un cambio pero lo mantiene en `stage`{style="color:blue"}
 
 !!! note Ejemplo de uso
     por medio del `log`{style="color:green"} ubicamos el `hash`{style="color:blue"} a quitar.
-    ```
+    ``` sh
     43f3570 agregado nuevo hero // commit a quitar
     8db3310 agregado el header // hash a llamar
     052f52b inicializar el landing
@@ -298,6 +372,8 @@ si los archivos solo se encuentran el workig directory y se encuentra en estado 
 
 `git reset --hard <SHA-1>`{style="color:white;background:black;padding:10px"}
 
+<br>
+
 !!! danger para tener encuenta
     en caso de haber borrado con `--hard`{style="color:green"}, la unica forma para volver a ese estado es tener una copia del log y repetir el paso desde el ultimo hash o del que quiere repetir
 
@@ -309,27 +385,235 @@ crear ramas
 
 `git branch <nombreRama>`{style="color:white;background:black;padding:10px"}
 
-para listar ramas
+para listar ramas (-l , --list)
 
-`git branch -l`{style="color:white;background:black;padding:10px"}
+`git branch --list`{style="color:white;background:black;padding:10px"}
 
-borrar ramas
+borrar ramas (-d, --delete)
  * no permite borrar cuando hay cambios dentro de ella (commit)
 
 `git branch -d <nombreRama>`{style="color:white;background:black;padding:10px"}
 
-* para forzar el borrado se usa
+* para forzar el borrado se usa (--delete --force, -D)
 
 `git branch -D <nombreRama>`{style="color:white;background:black;padding:10px"}
 
-renombrar ramas
+renombrar ramas (-m, --move)
 
 `git branch -m <nombreRamaOriginal> <nombreRamaFinal>`{style="color:white;background:black;padding:10px"}
 
-Crear una rama y ubicarse en ella
 
-`git branch -b <nombreRama>`{style="color:white;background:black;padding:10px"}
+#### `Movimiento entre ramas (checkout)`{style="color:green"}
+moverse entre ramas
+
+`git checkout <nombreRama>`{style="color:white;background:black;padding:10px"}
+
+tambien se puede usar el `checkout`{style="color:green"} para moverse entre commit, por medio este podemos movernos a ese commit y revisar como estuve en ese tiempo el proyecto sin borrar nada.(crea la rama virtual con el nombre del SHA-1 hash)
+
+`git checkout <hash>`{style="color:white;background:black;padding:10px"}
+
+crear rama y ubicarse en ella
 
 `git checkout -b <nombreRama>`{style="color:white;background:black;padding:10px"}
 
-#### `Moveimiento entre ramas (checkout)`{style="color:green"}
+Con checkout se puede resetear modificaciones
+
+`git checkout -- <nombreArchivoaQuitarModificacion>`{style="color:white;background:black;padding:10px"}
+
+<br>
+
+#### `Trabajar entre ramas`{style="color:green"}
+Una vez terminado el trabajo en cada una de las ramas se procede a realizar la union de todas la ramas.
+
+Ubicarse en la rama que va recibir los cambios (master)
+
+`git merge <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
+
+![merge](./merge.png)
+
+metodos internos de git a usar en el merge
+
+* `Fast-forward`{style="color:green"}: la rama que se va a unir, parte directamente desde la rama master, continuación directa.
+
+* `Auto-mergin`{style="color:green"}: abre el ditor para confirmar cambios (commit), este tipo de combinacion se da cuando la rama ha partido del master pero ya se han realizado cambios en ella.
+
+* `Auto-merging CONFLICT`{style="color:green"}:Cuando se mezclan con archivos iguales, se revisan los cambios manuales y se deja una version.
+
+<br>
+
+#### `reescribir la historia (rebase)`{style="color:green"}
+Una alternativa a `merge`{style="color:green"}, en lugar de enlazar ramas con `commit`{style="color:green"} de merge, el `rebase`{style="color:green"} mueve completamente la rama con la nueva característica hacia la punta del `master`{style="color:blue"}
+
+![rebase](./rebase.png)
+
+`git rebase <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
+
+Ventajas:
+
+* Resulta en una historia lineal del proyecto
+* Oportunidad de limpiar commits locales
+
+contras:
+* hace la unión de todas las ramas
+
+!!! danger Para tener en cuenta
+    Al no realizarce de manera correcta, puede ser una de las operaciones más peligrosas que se le puede realizar a un repositorio
+
+hacer un rebase no mueve los commits en una nueva rama. En su lugar, crea nuevos commits que contienen los cambios deseados.
+
+![dangerRebase](./danger.png)
+
+Después de hacer un rebase, los commits en `feature`{style="color:orangeRed"} tendrán diferentes hashes. Esto significa que no solo posicionamos una rama —literalmente, reescribimos la historia del proyecto. Esto es un efecto secundario muy importante de `rebase`{style="color:green"}.
+##### interactivo (interative rebase -i)
+
+El rebase interactivo deja definir precisamente como cada commit será movido hacia la nueva base.
+
+`git rebase -i <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
+
+De esta manera se confirman las modificaciones (commit), es util para cambiar los mensajes de los commits anteriores así como reorganizar el historial de confirmaciones, equivalente al `--amend`{style="color:green"}.
+
+#### `Cambios temporales (stash)`{style="color:green"}
+
+El comando `stash`{style="color:green"} almacena temporalmente (o guarda en un stash) los cambios que se hayan efectuado en el código en el que se está trabajando. Guardar los cambios en stashes resulta práctico si se tiene que cambiar rápidamente de contexto, y no se tiene listo el código para confirmar los cambios.
+
+`git stash`{style="color:white;background:black;padding:10px"}
+
+al regresar a la rama donde se dejó, se puede hacer una visualización de los stash:
+
+`git stash list`{style="color:white;background:black;padding:10px"}
+
+``` bash:listado-stash
+stash@{0}: WIP on <branch>: <hash> <commit>
+stash@{1}: WIP on <branch>: <hash> <commit>
+```
+!!! note ""
+    `stash@{#}`{style="color:orangeRed"}: identificador
+
+    `WIP`{style="color:orangeRed"}: Trabajo en curso
+
+se recomienda comentar los `stash`{style="color:green"} con una descripción mediante el comando
+
+`git stash save "comentario del stash"`{style="color:white;background:black;padding:10px"}
+
+* ver las diferencias de un stash
+
+`git stash show"`{style="color:white;background:black;padding:10px"}
+
+Otra opción es utilizar la opción -p (o --patch) para ver todas las diferencias de un stash:
+
+`git stash show -p"`{style="color:white;background:black;padding:10px"}
+
+* eliminar
+
+`git stash drop <identificador>`{style="color:white;background:black;padding:10px"}
+
+* eliminar todos los stash
+
+`git stash clear`{style="color:white;background:black;padding:10px"}
+
+* aplicar el ultimo cambio realizado (stash@{0})  
+
+`git stash apply`{style="color:white;background:black;padding:10px"}
+
+* para aplicar cambio de un determinado stash se invoca su numero de stash:
+
+`git stash apply <identificador>`{style="color:white;background:black;padding:10px"}
+
+* Crear una nueva rama a partir del stash
+
+`git stash branch"`{style="color:white;background:black;padding:10px"}
+
+<br>
+
+#### `Seleccionando commits (cherry-pick)`{style="color:green"}
+
+`cherry-pick`{style="color:green"} es un potente comando que permite que las confirmaciones arbitrarias de Git se elijan por referencia y se añadan al actual `HEAD`{style="color:blue"} de trabajo. La ejecución de cherry-pick es el acto de elegir una confirmación de una rama y aplicarla a otra. `cherry-pick`{style="color:green"} puede ser útil para deshacer cambios. 
+
+Por ejemplo, suponiendo que una confirmación se aplica accidentalmente en la rama equivocada. Se Puede cambiar a la rama correcta y ejecutar cherry-pick en la confirmación para aplicarla a donde pertenece.
+
+!!! danger Para tener en cuenta
+    `cherry-pick`{style="color:green"} es una herramienta útil, pero no siempre es una práctica recomendada, La ejecución de cherry-pick puede generar duplicaciones de confirmaciones.
+
+<br>
+
+`git cherry-pick`{style="color:white;background:black;padding:10px"}
+
+<br>
+
+!!! Note Caso de uso
+    Ejemplo de uso del `cherry-pick`{style="color:green"}
+
+    ```bash:Identificación
+    6544057 (HEAD -> responsive) cambio de stilos responsive
+    0894d24 hotfix2 // archivo de arreglo no corresponde a la rama
+    a8657f4 cambio2 responsive
+    7ce6c0e cambio1 responsive
+    ```
+    paso a seguir:
+
+    sacar el commit del "hotfix2" y reubicarlo en `master`{style="color:blue"}
+
+    ```bash:Optimo
+    git checkout master
+    // crear rama de arreglo desde master y ubicación en ella
+    git checkout -b hotfix2
+    //en esta rama se debía generar el cambio
+    ```
+    ubicado en la rama donde tendría que estar el arreglo:
+
+    ```bash:Reubicación
+    (hotfix2) git cherry-pick 0894d24
+    ```
+
+    finalizar el arreglo con un merge
+
+    ```bash:finalizando
+    (hotfix2) git checkout master
+    (master) git merge hotfix2
+    ```
+
+Opciones para trabajar con `cherry-pick`{style="color:green"}:
+
+* `-edit`{style="color:blue"}:: Git solicitará un mensaje de confirmación antes de aplicar la operación cherry-pick.
+
+* `--no-commit`{style="color:blue"}: Se ejecuta el comando cherry-pick, pero en lugar de hacer una nueva confirmación, se mueve el contenido de la confirmación de destino al directorio de trabajo de la rama actual.
+
+* `--signoff`{style="color:blue"}: Añade una línea de firma 'signoff' al final del mensaje de confirmación de cherry-pick.
+
+`cherry-pick`{style="color:green"} también cuenta con una variedad de opciones de estrategía de fusión (https://www.atlassian.com/es/git/tutorials/using-branches/merge-strategy)
+
+#### `Tips`{style="color:green"}
+
+Notas de fin de guía con algunos tips para mejorar el uso de git
+
+##### Gitignore
+
+Normalmente, en un proyecto de desarrollo de software, hay ficheros que no tiene sentido que se publiquen en el repositorio, ya que no aportan nada al resto de usuarios. Suelen ser ficheros, por ejemplo, de tipo temporal que genera el entorno de desarrollo integrado (IDE) que estemos utilizando.
+
+Por lo tanto hay que indicarle a git que esos archivos se deben obviar en la gestión del flujo de trabajo.
+
+Para ello, se crea en el raíz del proyecto un fichero con el nombre .gitignore
+
+En su interior se especifican unos patrones para la exclusión de uno o varios archivos. En cada línea del archivo se puede incluir un patrón diferente, y todos ellos se aplicarán automáticamente para que Git deje de tratar los ficheros que cumplan dichos patrones.
+
+```bash:gitignore
+**/logs
+*.data
+mytest.properties
+```
+* __Primera linea__ => `**/directorio`{style="color:orange"}: se excluyen todos los ficheros ubicados dentro de un directorio, independientemente de la ruta donde se encuentre (ejemplo: logs y también /actions/logs).
+* __Segunda linea__ => `*.extension`{style="color:orange"}: se excluyen todos los archivos con dicha extensión de la reiz del proyecto.
+* __Tercera linea__ => `archivo.extension`{style="color:orange"} : se excluye un archivo especifico.
+
+##### Alias en Git
+
+En Git se tiene la opción de configurar alias para los comandos, es decir, pequeños atajos para evitar escribir grandes cantidades de texto.
+
+Si se quiere que al escribir `git cm`{style="color:blueViolet"} se haga un `commit`{style="color:green"} basta con que ejecutar el siguiente comando para configurar el alias a nivel Git:
+
+`git config --global alias.cm 'git commit'`{style="color:white;background:black;padding:10px"}
+
+para borrar un alias creado se usa `--unset`{style="color:green"}
+
+`git config --global --unset alias.cm`{style="color:white;background:black;padding:10px"}
+
