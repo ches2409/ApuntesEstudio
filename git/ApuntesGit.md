@@ -14,42 +14,25 @@ puppeteer:
     
 ---
 
-<br>
-<br>
-<br>
-<br>
-
 :::: container
 :::text-center
 # `Git`{style="color:orange"}
 :::
 ::::
 
-<br>
-<br>
-<br>
-
 ::::
-:::text-right alert alert-secondary
+:::text-end alert alert-secondary
 ## Guías de estudio
 :::
 ::::
 
 <br>
-<br>
-<br>
-<br>
 
 ### `Guía rápida`{style="color:orangeRed"}
 
 <br>
-<br>
-<br>
 
 #### `Paso a paso (lo más básico - trabajo inicial)`{style="color:green"}
-
-<br>
-<br>
 
 Resumen de trabajo inicial.
 
@@ -75,8 +58,6 @@ Se recomienda antes de iniciar, en caso de ser nuevo proyecto, crear primero el 
 
 `git remote add origin <url del repositorio de github>`{style="color:white;background:black;padding:10px"}
 
-<br>
-
 Ejemplo:
 
 ~~~
@@ -88,8 +69,6 @@ Ejemplo:
 `git push origin -u master`{style="color:white;background:black;padding:10px"}
 
 Para continuar con el trabajo en remoto ver la documentacion de esta guía a partir de la parte dos
-
-<br>
 
 #### `Configurar`{style="color:green"}
 
@@ -107,17 +86,18 @@ La siguiente configuración se realiza una vez por usuario a trabajar en el edit
 
 `git config --global -l"`{style="color:white;background:black;padding:10px"}
 
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### `Guía completa de uso / parte 1: trabajo local`{style="color:orangeRed"}
 
 Guía completa de trabajo con Git
-<br>
-<br>
-<br>
-
-
-
 
 #### Imágen de convenciones
 ![conv](./conventions.svg)
@@ -210,7 +190,6 @@ para agregar un cambio al commit realizado previamente se usa:
 
 ![amend](./commit-amend.svg)
 
-<br>
 
 #### `versionar o etiquetar (tag)`{style="color:green"}
 Para realizar un versionamieto del proyecto se usa la etiqueta [[git tag]]
@@ -220,7 +199,6 @@ existen dos tipos de etiquetas:
 * Ligeras
 ligeras: la version a etiquetar, Ejemplo
 
-<br>
 
 `git tag 0.5`{style="color:white;background:black;padding:10px"}
 
@@ -238,6 +216,8 @@ Con esto etiquetamos el ultimo commit que se realizó.
 Para etiquetar versiones pasadas del proyecto, se hace conociendo el [[SHA-1 hash]] del `commit`{style="color:green"}, el cual se copia y se pega al comando:
 
 `git tag <numeroVersion> <SHA-1 hash> `{style="color:white;background:black;padding:10px"}
+
+<br>
 
 ejemplo:
     etiqueta ligera
@@ -372,7 +352,6 @@ si los archivos solo se encuentran el workig directory y se encuentra en estado 
 
 `git reset --hard <SHA-1>`{style="color:white;background:black;padding:10px"}
 
-<br>
 
 !!! danger para tener encuenta
     en caso de haber borrado con `--hard`{style="color:green"}, la unica forma para volver a ese estado es tener una copia del log y repetir el paso desde el ultimo hash o del que quiere repetir
@@ -468,19 +447,33 @@ Después de hacer un rebase, los commits en `feature`{style="color:orangeRed"} t
 
 El rebase interactivo deja definir precisamente como cada commit será movido hacia la nueva base.
 
+<br>
+
 `git rebase -i <ramaAMezclar>`{style="color:white;background:black;padding:10px"}
 
+<br>
+
 De esta manera se confirman las modificaciones (commit), es util para cambiar los mensajes de los commits anteriores así como reorganizar el historial de confirmaciones, equivalente al `--amend`{style="color:green"}.
+
+<br>
 
 #### `Cambios temporales (stash)`{style="color:green"}
 
 El comando `stash`{style="color:green"} almacena temporalmente (o guarda en un stash) los cambios que se hayan efectuado en el código en el que se está trabajando. Guardar los cambios en stashes resulta práctico si se tiene que cambiar rápidamente de contexto, y no se tiene listo el código para confirmar los cambios.
 
+<br>
+
 `git stash`{style="color:white;background:black;padding:10px"}
+
+<br>
 
 al regresar a la rama donde se dejó, se puede hacer una visualización de los stash:
 
+<br>
+
 `git stash list`{style="color:white;background:black;padding:10px"}
+
+<br>
 
 ``` bash:listado-stash
 stash@{0}: WIP on <branch>: <hash> <commit>
@@ -611,9 +604,15 @@ En Git se tiene la opción de configurar alias para los comandos, es decir, pequ
 
 Si se quiere que al escribir `git cm`{style="color:blueViolet"} se haga un `commit`{style="color:green"} basta con que ejecutar el siguiente comando para configurar el alias a nivel Git:
 
+<br>
+
 `git config --global alias.cm 'git commit'`{style="color:white;background:black;padding:10px"}
 
+<br>
+
 para borrar un alias creado se usa `--unset`{style="color:green"}
+
+<br>
 
 `git config --global --unset alias.cm`{style="color:white;background:black;padding:10px"}
 
