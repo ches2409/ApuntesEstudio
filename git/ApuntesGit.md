@@ -5,9 +5,9 @@ puppeteer:
         displayHeaderFooter: true
         margin:
             top: 2cm
-            right: 2.5cm
+            right: 2cm
             bottom: 2cm
-            left: 0.5cm
+            left: 2cm
     image:
         quality: 90
         fullPage: true
@@ -521,6 +521,38 @@ Opciones para trabajar con `cherry-pick`{style="color:green"}:
 
 `cherry-pick`{style="color:green"} también cuenta con una variedad de opciones de estrategía de fusión (https://www.atlassian.com/es/git/tutorials/using-branches/merge-strategy)
 
-### `Guía completa de uso / parte 2: trabajo remoto`{style="color:orangeRed"}
-Crear cuenta en Github.com
+#### `Tips`{style="color:green"}
+
+Notas de fin de guía con algunos tips para mejorar el uso de git
+
+##### Gitignore
+
+Normalmente, en un proyecto de desarrollo de software, hay ficheros que no tiene sentido que se publiquen en el repositorio, ya que no aportan nada al resto de usuarios. Suelen ser ficheros, por ejemplo, de tipo temporal que genera el entorno de desarrollo integrado (IDE) que estemos utilizando.
+
+Por lo tanto hay que indicarle a git que esos archivos se deben obviar en la gestión del flujo de trabajo.
+
+Para ello, se crea en el raíz del proyecto un fichero con el nombre .gitignore
+
+En su interior se especifican unos patrones para la exclusión de uno o varios archivos. En cada línea del archivo se puede incluir un patrón diferente, y todos ellos se aplicarán automáticamente para que Git deje de tratar los ficheros que cumplan dichos patrones.
+
+```bash:gitignore
+**/logs
+*.data
+mytest.properties
+```
+* __Primera linea__ => `**/directorio`{style="color:orange"}: se excluyen todos los ficheros ubicados dentro de un directorio, independientemente de la ruta donde se encuentre (ejemplo: logs y también /actions/logs).
+* __Segunda linea__ => `*.extension`{style="color:orange"}: se excluyen todos los archivos con dicha extensión de la reiz del proyecto.
+* __Tercera linea__ => `archivo.extension`{style="color:orange"} : se excluye un archivo especifico.
+
+##### Alias en Git
+
+En Git se tiene la opción de configurar alias para los comandos, es decir, pequeños atajos para evitar escribir grandes cantidades de texto.
+
+Si se quiere que al escribir `git cm`{style="color:blueViolet"} se haga un `commit`{style="color:green"} basta con que ejecutar el siguiente comando para configurar el alias a nivel Git:
+
+`git config --global alias.cm 'git commit'`{style="color:white;background:black;padding:10px"}
+
+para borrar un alias creado se usa `--unset`{style="color:green"}
+
+`git config --global --unset alias.cm`{style="color:white;background:black;padding:10px"}
 
